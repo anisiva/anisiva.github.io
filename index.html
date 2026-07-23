@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anitha Sivasubramanian — Chief AI Officer</title>
+<meta name="description" content="Anitha Sivasubramanian — Chief AI Officer. Agentic AI systems, enterprise ML platforms, and AI adoption at global scale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-dark:#0E1A2B;
+    --bg-dark-2:#122238;
+    --bg-light:#F5F6F4;
+    --bg-card:#FFFFFF;
+    --ink:#16202C;
+    --slate:#5C6873;
+    --slate-soft:#8892A0;
+    --amber:#E2A63B;
+    --amber-soft:#F3D9A8;
+    --cyan:#3FB6AA;
+    --line:#E1E3DF;
+    --line-dark:#26374F;
+    --paper-on-dark:#EFF3F6;
+    --muted-on-dark:#93A5B8;
+    --radius:2px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg-light);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  h1,h2,h3,h4{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+    letter-spacing:0.02em;
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  img,svg{max-width:100%;display:block;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,26,43,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+  }
+  .nav-name{
+    color:var(--paper-on-dark);font-size:0.92rem;font-weight:600;
+    font-family:'Space Grotesk',sans-serif;letter-spacing:0.02em;
+  }
+  .nav-links{
+    display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap;
+  }
+  .nav-links a{
+    color:var(--muted-on-dark);text-decoration:none;font-size:0.78rem;
+    font-family:'JetBrains Mono',monospace;letter-spacing:0.03em;
+    text-transform:uppercase;transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--amber);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:radial-gradient(ellipse at 20% 0%, var(--bg-dark-2), var(--bg-dark) 60%);
+    color:var(--paper-on-dark);
+    padding:72px 0 56px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-block;color:var(--amber);font-size:0.72rem;
+    text-transform:uppercase;margin-bottom:18px;font-weight:500;
+  }
+  .hero h1{
+    font-size:clamp(1.9rem,3.6vw,2.9rem);
+    line-height:1.12;color:#fff;
+  }
+  .hero h1 span{color:var(--amber);}
+  .hero p.sub{
+    margin-top:18px;max-width:44ch;color:var(--muted-on-dark);
+    font-size:1.02rem;
+  }
+  .status-strip{
+    margin-top:28px;padding-top:20px;border-top:1px solid var(--line-dark);
+    display:flex;flex-wrap:wrap;gap:10px 22px;
+    font-size:0.72rem;color:var(--muted-on-dark);
+  }
+  .status-strip b{color:var(--paper-on-dark);font-weight:500;}
+  .hero-ctas{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    font-family:'JetBrains Mono',monospace;font-size:0.78rem;
+    padding:11px 18px;border-radius:var(--radius);text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;letter-spacing:0.02em;
+    border:1px solid transparent;transition:all .18s;
+  }
+  .btn-primary{background:var(--amber);color:#1a1305;font-weight:600;}
+  .btn-primary:hover{background:#eeb659;}
+  .btn-ghost{border-color:var(--line-dark);color:var(--paper-on-dark);}
+  .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan);}
+
+  /* agent graph */
+  .graph-panel{
+    background:rgba(255,255,255,0.02);
+    border:1px solid var(--line-dark);
+    border-radius:4px;padding:6px;
+  }
+  .node-label{
+    font-family:'JetBrains Mono',monospace;font-size:9.5px;fill:var(--muted-on-dark);
+    text-transform:uppercase;letter-spacing:0.04em;
+  }
+  .hub-label{fill:#0E1A2B;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:11px;}
+  .edge{
+    stroke:var(--line-dark);stroke-width:1.4;fill:none;
+  }
+  .edge-signal{
+    stroke:var(--cyan);stroke-width:1.6;fill:none;
+    stroke-dasharray:6 10;
+    animation:flow 3.6s linear infinite;
+  }
+  .node-dot{fill:var(--bg-dark);stroke:var(--cyan);stroke-width:1.4;}
+  .hub-dot{fill:var(--amber);}
+  @keyframes flow{ to { stroke-dashoffset:-160; } }
+  @media (prefers-reduced-motion: reduce){
+    .edge-signal{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:64px 0;}
+  .section-head{margin-bottom:34px;max-width:640px;}
+  .section-label{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--cyan);
+    text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;display:block;
+  }
+  .section-head h2{font-size:clamp(1.4rem,2.4vw,1.9rem);}
+  .section-head p{color:var(--slate);margin-top:10px;max-width:56ch;}
+
+  /* impact metrics */
+  .metrics{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:1px;background:var(--line);border:1px solid var(--line);
+  }
+  .metric{background:var(--bg-card);padding:26px 22px;}
+  .metric .num{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:1.9rem;color:var(--ink);
+  }
+  .metric .num em{color:var(--amber);font-style:normal;}
+  .metric .lbl{
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--slate);
+    margin-top:8px;text-transform:uppercase;letter-spacing:0.02em;line-height:1.4;
+  }
+
+  /* timeline */
+  .timeline{border-left:2px solid var(--line);margin-left:6px;}
+  .tl-item{position:relative;padding:0 0 40px 32px;}
+  .tl-item:last-child{padding-bottom:4px;}
+  .tl-item::before{
+    content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;
+    border-radius:50%;background:var(--bg-light);border:2px solid var(--amber);
+  }
+  .tl-date{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--cyan);
+    text-transform:uppercase;margin-bottom:6px;display:block;
+  }
+  .tl-item h3{font-size:1.12rem;}
+  .tl-org{color:var(--slate);font-size:0.88rem;margin-top:3px;margin-bottom:12px;}
+  .tl-item ul{margin:0;padding-left:18px;color:#333;font-size:0.94rem;}
+  .tl-item li{margin-bottom:6px;}
+
+  /* tags */
+  .tags{display:flex;flex-wrap:wrap;gap:9px;}
+  .tag{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+    padding:7px 12px;border:1px solid var(--line);border-radius:20px;
+    color:var(--ink);background:var(--bg-card);
+  }
+
+  /* architecture stack */
+  .stack{border:1px solid var(--line);background:var(--bg-card);}
+  .layer{
+    display:grid;grid-template-columns:220px 1fr;gap:20px;
+    padding:22px 24px;border-bottom:1px solid var(--line);align-items:start;
+  }
+  .layer:last-child{border-bottom:none;}
+  .layer-id{
+    font-family:'JetBrains Mono',monospace;color:var(--amber);font-size:0.72rem;
+    display:block;margin-bottom:6px;
+  }
+  .layer-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;}
+  .layer-items{display:flex;flex-wrap:wrap;gap:8px;}
+  .layer-items span{
+    font-size:0.78rem;color:var(--slate);background:var(--bg-light);
+    padding:5px 10px;border-radius:3px;font-family:'JetBrains Mono',monospace;
+  }
+
+  /* speaking / pubs */
+  .flat-list{list-style:none;margin:0;padding:0;}
+  .flat-list li{
+    display:grid;grid-template-columns:120px 1fr;gap:18px;
+    padding:16px 0;border-bottom:1px solid var(--line);font-size:0.94rem;
+  }
+  .flat-list li:last-child{border-bottom:none;}
+  .flat-list .tag-date{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--cyan);
+    text-transform:uppercase;
+  }
+  .flat-list a.pub-link{
+    font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--amber);
+    text-decoration:none;margin-left:10px;border-bottom:1px dashed var(--amber);
+  }
+
+  /* roadmap / changelog */
+  .roadmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
+  .rm-card{background:var(--bg-card);padding:26px 24px;}
+  .rm-version{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--cyan);}
+  .rm-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.15rem;margin-top:8px;}
+  .rm-status{
+    display:inline-block;margin-top:12px;font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;text-transform:uppercase;padding:4px 9px;border-radius:20px;
+    background:#FBF0DC;color:#8A6113;letter-spacing:0.03em;
+  }
+  .rm-desc{margin-top:14px;color:var(--slate);font-size:0.9rem;}
+
+  /* education */
+  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+  .edu-card{border:1px solid var(--line);background:var(--bg-card);padding:20px;}
+  .edu-card .deg{font-weight:600;font-family:'Space Grotesk',sans-serif;font-size:0.98rem;}
+  .edu-card .sch{color:var(--slate);font-size:0.86rem;margin-top:6px;}
+  .edu-card .yr{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--amber);margin-top:10px;display:block;}
+
+  /* footer */
+  footer{
+    background:var(--bg-dark);color:var(--paper-on-dark);padding:52px 0 36px;
+    border-top:1px solid var(--line-dark);
+  }
+  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:flex-end;}
+  footer h3{color:#fff;font-size:1.3rem;}
+  footer .loc{color:var(--muted-on-dark);font-size:0.86rem;margin-top:8px;}
+  .footer-links{display:flex;gap:18px;flex-wrap:wrap;}
+  .footer-links a{
+    font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--paper-on-dark);
+    text-decoration:none;border-bottom:1px solid var(--line-dark);padding-bottom:2px;
+  }
+  .footer-links a:hover{color:var(--amber);border-color:var(--amber);}
+  .footer-note{
+    margin-top:36px;padding-top:20px;border-top:1px solid var(--line-dark);
+    font-size:0.74rem;color:var(--muted-on-dark);font-family:'JetBrains Mono',monospace;
+  }
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .layer{grid-template-columns:1fr;}
+    .flat-list li{grid-template-columns:1fr;gap:4px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-name">ANITHA&nbsp;SIVASUBRAMANIAN</div>
+    <ul class="nav-links">
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#speaking">Speaking</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow mono">CHIEF AI OFFICER — AGENTIC AI &amp; ENTERPRISE ML SYSTEMS</span>
+      <h1>I build AI systems that <span>ship</span> — across 17+ markets, at board-level stakes.</h1>
+      <p class="sub">22 years turning AI strategy into production systems: agentic architectures, event-driven RAG pipelines, and adoption programs that move real revenue, cost, and retention numbers — not just demos.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#experience">View experience</a>
+        <a class="btn btn-ghost" href="mailto:Anitha.sivasubramanian@gmail.com">Email Anitha</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/anithasiva" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="status-strip mono">
+        <span><b>22Y</b> experience</span>
+        <span><b>17+</b> markets</span>
+        <span><b>6</b> business lines</span>
+        <span><b>$3.1M</b> annualized savings delivered</span>
+        <span><b>US Green Card</b> · available immediately</span>
+      </div>
+    </div>
+
+    <div class="graph-panel">
+      <svg viewBox="0 0 480 380" role="img" aria-label="Diagram showing Anitha's core leadership pillars connected around a central AI strategy hub">
+        <!-- edges -->
+        <path class="edge" d="M240,190 L120,70"></path>
+        <path class="edge edge-signal" d="M240,190 L120,70"></path>
+        <path class="edge" d="M240,190 L360,70"></path>
+        <path class="edge edge-signal" d="M240,190 L360,70" style="animation-delay:.6s"></path>
+        <path class="edge" d="M240,190 L400,220"></path>
+        <path class="edge edge-signal" d="M240,190 L400,220" style="animation-delay:1.2s"></path>
+        <path class="edge" d="M240,190 L260,340"></path>
+        <path class="edge edge-signal" d="M240,190 L260,340" style="animation-delay:1.8s"></path>
+        <path class="edge" d="M240,190 L70,240"></path>
+        <path class="edge edge-signal" d="M240,190 L70,240" style="animation-delay:2.4s"></path>
+
+        <!-- satellite nodes -->
+        <circle class="node-dot" cx="120" cy="70" r="26"></circle>
+        <text x="120" y="35" text-anchor="middle" class="node-label">STRATEGY</text>
+
+        <circle class="node-dot" cx="360" cy="70" r="26"></circle>
+        <text x="360" y="35" text-anchor="middle" class="node-label">GOVERNANCE</text>
+
+        <circle class="node-dot" cx="400" cy="220" r="26"></circle>
+        <text x="400" y="260" text-anchor="middle" class="node-label">ENGINEERING</text>
+
+        <circle class="node-dot" cx="260" cy="340" r="26"></circle>
+        <text x="260" y="368" text-anchor="middle" class="node-label">PRODUCT</text>
+
+        <circle class="node-dot" cx="70" cy="240" r="26"></circle>
+        <text x="70" y="280" text-anchor="middle" class="node-label">GLOBAL OPS</text>
+
+        <!-- hub -->
+        <circle class="hub-dot" cx="240" cy="190" r="38"></circle>
+        <text x="240" y="187" text-anchor="middle" class="hub-label">CAIO</text>
+        <text x="240" y="200" text-anchor="middle" class="hub-label" style="font-size:8.5px;">HUB</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">01 — Impact</span>
+      <h2>Numbers a board actually asks about.</h2>
+      <p>Every AI initiative below was scoped, shipped, and tied back to a revenue, cost, or compliance outcome.</p>
+    </div>
+    <div class="metrics reveal">
+      <div class="metric">
+        <div class="num"><em>45%</em></div>
+        <div class="lbl">Call volume automated via LLM-powered conversational AI &amp; IVR, across 6M+ annual interactions</div>
+      </div>
+      <div class="metric">
+        <div class="num"><em>$3.1M</em></div>
+        <div class="lbl">Annualized cost savings delivered from automation program</div>
+      </div>
+      <div class="metric">
+        <div class="num">12wk → <em>4wk</em></div>
+        <div class="lbl">Pricing-decision cycle compressed via AI-powered intelligence platform</div>
+      </div>
+      <div class="metric">
+        <div class="num"><em>1.2M</em></div>
+        <div class="lbl">Subscribers covered by Next Best Offer &amp; churn-prediction models</div>
+      </div>
+      <div class="metric">
+        <div class="num"><em>10,000+</em></div>
+        <div class="lbl">Retailers certified via AI-generated multilingual training, ahead of a BNetzA regulatory deadline</div>
+      </div>
+      <div class="metric">
+        <div class="num"><em>17+</em></div>
+        <div class="lbl">Markets, 6 business lines, one enterprise-wide AI strategy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background:var(--bg-card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">02 — Experience</span>
+      <h2>Twenty-two years, six roles, one throughline.</h2>
+      <p>From actuarial-grade risk models to agentic AI platforms — always the person who takes AI from strategy deck to production.</p>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <span class="tl-date mono">Sep 2025 – Jul 2026</span>
+        <h3>Chief AI Officer</h3>
+        <div class="tl-org">Lyca Group of Companies · Dubai, UAE · Telecom, Healthcare, Travel, Film &amp; Media — 17+ markets</div>
+        <ul>
+          <li>Set enterprise-wide AI strategy across 17+ markets and six business lines, tied to board-level KPIs for revenue, churn, cost, and CSAT.</li>
+          <li>Directed LLM-powered conversational AI and IVR automation across 6M+ annual customer interactions in 19+ countries — 45% of call volume automated, $3.1M annualized savings.</li>
+          <li>Owned AI governance and regulatory response (GDPR, BNetzA, EU AI Act) across the portfolio, working directly with the DPO and InfoSec leadership.</li>
+          <li>Delivered an AI-generated multilingual training program that certified 10,000+ retailers against a BNetzA deadline, averting a shutdown of German operations.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-date mono">Feb 2025 – Sep 2025</span>
+        <h3>Founder &amp; Chief AI Officer</h3>
+        <div class="tl-org">Neuronworks.ai &amp; Nurture AI Labs · New Jersey, USA &amp; Chennai, India</div>
+        <ul>
+          <li>Founded an AI advisory and delivery practice spanning IoT, robotics, healthcare, genomics, fintech, manufacturing, and media.</li>
+          <li>Led a multidisciplinary team delivering client-facing AI strategy and implementation.</li>
+          <li>Advised enterprise boards and executive teams on AI-powered strategic decision-making.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-date mono">Oct 2022 – Jan 2025</span>
+        <h3>Director, Data Science &amp; AI Development</h3>
+        <div class="tl-org">Infodesk · India</div>
+        <ul>
+          <li>Architected a full-stack AI platform for life-science clients — NLP, RAG, conversational AI, and LangGraph-based agents — repositioning the company's core product around GenAI.</li>
+          <li>Built an event-driven RAG pipeline on Azure Service Bus with LangSmith tracing for debugging and prompt iteration.</li>
+          <li>Implemented human-in-the-loop evaluation, reinforcement learning, and stratified-sampling RAG evaluation, and scaled the platform into a multi-modal production pipeline.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-date mono">Aug 2019 – Oct 2022</span>
+        <h3>Principal Data Scientist</h3>
+        <div class="tl-org">John Wiley &amp; Sons · New Jersey, USA</div>
+        <ul>
+          <li>Built core data science components for ALTA (Knewton), Wiley's adaptive-learning EdTech product.</li>
+          <li>Built a Bayesian / collaborative-filtering course recommendation engine personalizing content paths by student performance.</li>
+          <li>Designed a fuzzy-matching, record-linkage pipeline reconciling institution records into a single deduplicated source of truth for the U.S. college market.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-date mono">Feb 2009 – Aug 2019</span>
+        <h3>Lead Product Insight Analyst</h3>
+        <div class="tl-org">Verisk Analytics · New Jersey, USA</div>
+        <ul>
+          <li>Owned end-to-end development of ISO Risk Analyzer, the firm's highest revenue-generating product at $7M in annual sales.</li>
+          <li>Led predictive-modeling modules for auto and homeowners insurance and built modular governance frameworks for scalable model deployment.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-date mono">Jul 2004 – May 2008</span>
+        <h3>Project Lead</h3>
+        <div class="tl-org">Cognizant Technology Solutions · London, UK &amp; Chennai, India</div>
+        <ul>
+          <li>Led cross-border project delivery for enterprise technology engagements across UK and India operations.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">03 — Expertise</span>
+      <h2>How the stack fits together.</h2>
+      <p>Governance wraps the orchestration layer; orchestration sits on the ML and data foundation. This is the same layering used to run AI programs at enterprise scale.</p>
+    </div>
+
+    <div class="stack reveal">
+      <div class="layer">
+        <div><span class="layer-id">L01</span><span class="layer-name">Governance &amp; Compliance</span></div>
+        <div class="layer-items">
+          <span>GDPR</span><span>BNetzA</span><span>EU AI Act</span><span>Data masking / privacy-by-design</span><span>Biometric risk evaluation</span><span>Cross-border data transfer controls</span>
+        </div>
+      </div>
+      <div class="layer">
+        <div><span class="layer-id">L02</span><span class="layer-name">Agentic Orchestration</span></div>
+        <div class="layer-items">
+          <span>LangGraph</span><span>LangSmith</span><span>Advanced RAG (query decomposition, routing)</span><span>Human-in-the-loop eval</span><span>LLM-as-judge</span><span>Reinforcement learning</span><span>n8n workflow automation</span>
+        </div>
+      </div>
+      <div class="layer">
+        <div><span class="layer-id">L03</span><span class="layer-name">Product &amp; Conversational AI</span></div>
+        <div class="layer-items">
+          <span>TTS</span><span>STT</span><span>ASR</span><span>Intent routing</span><span>Omilia platform delivery</span><span>Vision-language models</span>
+        </div>
+      </div>
+      <div class="layer">
+        <div><span class="layer-id">L04</span><span class="layer-name">ML &amp; Data Science</span></div>
+        <div class="layer-items">
+          <span>Bayesian modeling</span><span>Collaborative filtering</span><span>Gradient boosted trees</span><span>Random forest / KNN</span><span>NLP · LDA · SBERT</span><span>Fuzzy matching &amp; entity resolution</span>
+        </div>
+      </div>
+      <div class="layer">
+        <div><span class="layer-id">L05</span><span class="layer-name">Infrastructure &amp; Tooling</span></div>
+        <div class="layer-items">
+          <span>Azure Service Bus</span><span>AWS MLOps</span><span>Python</span><span>SAS</span><span>R</span><span>PostgreSQL / PostGIS</span><span>Tableau · Spotfire · ArcGIS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head reveal" style="margin-top:48px;">
+      <span class="section-label">Core competencies</span>
+    </div>
+    <div class="tags reveal">
+      <span class="tag">Agentic AI &amp; LLM System Design</span>
+      <span class="tag">Tool / Function Calling</span>
+      <span class="tag">Prompt Engineering</span>
+      <span class="tag">LLM Observability</span>
+      <span class="tag">AI Product Roadmap Ownership</span>
+      <span class="tag">Production AI at Enterprise Scale</span>
+      <span class="tag">Cross-Functional AI Adoption</span>
+      <span class="tag">AI/ML Team Build &amp; Mentorship</span>
+      <span class="tag">GenAI / RAG Architecture</span>
+      <span class="tag">P&amp;L and ROI Ownership</span>
+      <span class="tag">Regulatory &amp; AI Governance</span>
+      <span class="tag">Board &amp; Executive Communication</span>
+      <span class="tag">Change Management</span>
+    </div>
+  </div>
+</section>
+
+<section id="speaking" style="background:var(--bg-card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">04 — Speaking &amp; Media</span>
+      <h2>Talking about agentic AI in public.</h2>
+    </div>
+    <ul class="flat-list reveal">
+      <li><span class="tag-date mono">2023–2025</span><span>Speaker at three ICAI AI Innovation Summits (Chennai 2024, Jaipur CIRC-2025, Vadodara 2025) on generative and agentic AI for the chartered accountancy profession; keynote speaker, Cypher AI Summit 2023 — India's largest AI summit, hosted by Analytics India Magazine.</span></li>
+      <li><span class="tag-date mono">Media</span><span>Featured in WAIV Magazine and on Maalai Murasu TV's education series "Padippom Jeippom," discussing AI literacy and career adaptability.</span></li>
+      <li><span class="tag-date mono">Ongoing</span><span>Mentors high-school students in data science and research; contributes published papers and thought-leadership writing on applied AI.</span></li>
+    </ul>
+
+    <div class="section-head reveal" style="margin-top:44px;">
+      <span class="section-label">Publications &amp; links</span>
+    </div>
+    <ul class="flat-list reveal">
+      <li><span class="tag-date mono">Medium</span><span>Record Linkage — Building a Custom Entity-Resolution Pipeline <a class="pub-link" href="#">↗ add link</a></span></li>
+      <li><span class="tag-date mono">Medium</span><span>Bayesian Modeling — Assignment Length Estimation Series, Parts 1–3 <a class="pub-link" href="#">↗ add link</a></span></li>
+      <li><span class="tag-date mono">UPSTAT</span><span>"Smart Defaults and Updating Estimates Over Time" — conference abstract <a class="pub-link" href="#">↗ add link</a></span></li>
+      <li><span class="tag-date mono">O'Reilly</span><span>Data Superstream — "Fueling Generative AI: The Vitality of Data Engineering" <a class="pub-link" href="#">↗ add link</a></span></li>
+      <li><span class="tag-date mono">LinkedIn</span><span>Full profile and post history <a class="pub-link" href="https://linkedin.com/in/anithasiva" target="_blank" rel="noopener">↗ linkedin.com/in/anithasiva</a></span></li>
+    </ul>
+
+    <div class="section-head reveal" style="margin-top:44px;">
+      <span class="section-label">Education</span>
+    </div>
+    <div class="edu-grid reveal">
+      <div class="edu-card">
+        <div class="deg">M.S., Applied Statistics</div>
+        <div class="sch">Rochester Institute of Technology, New York</div>
+        <span class="yr mono">2022</span>
+      </div>
+      <div class="edu-card">
+        <div class="deg">M.S., Business Analytics</div>
+        <div class="sch">NYU Stern School of Business, New York</div>
+        <span class="yr mono">2014</span>
+      </div>
+      <div class="edu-card">
+        <div class="deg">B.Tech, Information Technology</div>
+        <div class="sch">University of Madras, Tamil Nadu, India</div>
+        <span class="yr mono">2004</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">05 — What's next</span>
+      <h2>Building this in public.</h2>
+      <p>The next phase of the work — shipped the same way the platforms above were: iteratively, and in the open.</p>
+    </div>
+    <div class="roadmap reveal">
+      <div class="rm-card">
+        <span class="rm-version mono">v1.1</span>
+        <div class="rm-title">Podcast</div>
+        <span class="rm-status">In development</span>
+        <p class="rm-desc">Conversations with operators shipping agentic AI inside real enterprises — not demo-ware. Guest-first for the first season.</p>
+      </div>
+      <div class="rm-card">
+        <span class="rm-version mono">v1.2</span>
+        <div class="rm-title">Book</div>
+        <span class="rm-status">Planned</span>
+        <p class="rm-desc">A field guide to running agentic AI programs at enterprise scale — governance, adoption, and the operating model, drawn from 17+ markets.</p>
+      </div>
+      <div class="rm-card">
+        <span class="rm-version mono">v1.3</span>
+        <div class="rm-title">Live demo series</div>
+        <span class="rm-status">Planned</span>
+        <p class="rm-desc">Hands-on builds of agentic and RAG systems, streamed and written up — architecture decisions shown, not just described.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3>Let's talk.</h3>
+        <div class="loc">New Jersey, USA · Available immediately for US-based onsite/hybrid roles · US Green Card holder</div>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:Anitha.sivasubramanian@gmail.com">Anitha.sivasubramanian@gmail.com</a>
+        <a href="https://linkedin.com/in/anithasiva" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="footer-note">
+      © <span id="yr"></span> Anitha Sivasubramanian. Built as a single static page — no build step required.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));
+  }
+</script>
+</body>
+</html>
