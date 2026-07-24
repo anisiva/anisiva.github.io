@@ -237,20 +237,61 @@
     padding:5px 10px;border-radius:3px;font-family:'JetBrains Mono',monospace;
   }
 
-  /* speaking / pubs */
-  .flat-list{list-style:none;margin:0;padding:0;}
-  .flat-list li{
-    display:grid;grid-template-columns:120px 1fr;gap:18px;
-    padding:16px 0;border-bottom:1px solid var(--line);font-size:0.94rem;
+  /* speaking & features gallery */
+  .feature-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
   }
-  .flat-list li:last-child{border-bottom:none;}
-  .flat-list .tag-date{
-    font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--cyan);
-    text-transform:uppercase;
+  .feature-card{
+    background:var(--bg-card);border:1px solid var(--line);overflow:hidden;
+    transition:transform .2s ease, box-shadow .2s ease;
   }
-  .flat-list a.pub-link{
-    font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--amber);
-    text-decoration:none;margin-left:10px;border-bottom:1px dashed var(--amber);
+  .feature-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(14,26,43,0.10);}
+  .feature-photo{
+    aspect-ratio:16/10;background:linear-gradient(135deg,var(--bg-dark),var(--bg-dark-2));
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+    color:var(--muted-on-dark);position:relative;text-decoration:none;
+  }
+  .feature-photo svg{width:28px;height:28px;opacity:0.55;}
+  .feature-photo .ph-label{
+    font-family:'JetBrains Mono',monospace;font-size:0.64rem;text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+  .video-thumb{overflow:hidden;cursor:pointer;}
+  .video-thumb:focus-visible{outline:2px solid var(--amber);outline-offset:-2px;}
+  .video-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
+  .video-thumb:hover img{transform:scale(1.05);}
+  .video-thumb .play-btn{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:52px;height:52px;border-radius:50%;background:rgba(14,26,43,0.72);
+    display:flex;align-items:center;justify-content:center;transition:background .2s ease;
+  }
+  .video-thumb:hover .play-btn{background:var(--amber);}
+  .video-thumb .play-btn svg{width:20px;height:20px;fill:#fff;opacity:1;margin-left:3px;}
+  .video-thumb:hover .play-btn svg{fill:#1a1305;}
+  .feature-body{padding:20px 22px 22px;}
+  .feature-tag{
+    display:inline-block;font-size:0.68rem;color:var(--cyan);text-transform:uppercase;
+    letter-spacing:0.04em;margin-bottom:10px;
+  }
+  .feature-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.02rem;line-height:1.3;}
+  .feature-desc{color:var(--slate);font-size:0.86rem;line-height:1.5;margin-top:8px;}
+  .feature-link{
+    display:inline-block;margin-top:14px;font-family:'JetBrains Mono',monospace;
+    font-size:0.74rem;color:var(--amber);text-decoration:none;
+    border-bottom:1px dashed var(--amber);
+  }
+  .feature-add{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    border:2px dashed var(--line);background:transparent;min-height:230px;
+    color:var(--slate-soft);
+  }
+  .feature-add .add-icon{
+    font-size:2.1rem;font-family:'Space Grotesk',sans-serif;color:var(--amber);line-height:1;
+  }
+  .feature-add .add-text{
+    margin-top:10px;font-size:0.8rem;font-family:'JetBrains Mono',monospace;
+    text-align:center;padding:0 24px;
   }
 
   /* roadmap / changelog */
@@ -270,7 +311,18 @@
   .edu-card{border:1px solid var(--line);background:var(--bg-card);padding:20px;}
   .edu-card .deg{font-weight:600;font-family:'Space Grotesk',sans-serif;font-size:0.98rem;}
   .edu-card .sch{color:var(--slate);font-size:0.86rem;margin-top:6px;}
-  .edu-card .yr{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--amber);margin-top:10px;display:block;}
+
+  /* open to */
+  .open-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:1px;background:var(--line);border:1px solid var(--line);
+  }
+  .open-card{background:var(--bg-card);padding:28px 24px;}
+  .open-tag{
+    display:inline-block;font-size:0.72rem;color:var(--amber);text-transform:uppercase;
+    letter-spacing:0.03em;margin-bottom:12px;font-weight:600;
+  }
+  .open-card p{color:var(--ink);font-size:0.88rem;line-height:1.55;margin:0;}
 
   /* footer */
   footer{
@@ -301,7 +353,7 @@
   @media (max-width:860px){
     .hero-grid{grid-template-columns:1fr;}
     .layer{grid-template-columns:1fr;}
-    .flat-list li{grid-template-columns:1fr;gap:4px;}
+    .feature-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -316,6 +368,7 @@
       <li><a href="#expertise">Expertise</a></li>
       <li><a href="#speaking">Speaking</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#open-to">Open to</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -332,7 +385,7 @@
         </div>
       </div>
       <span class="eyebrow mono">CHIEF AI OFFICER — AGENTIC AI &amp; ENTERPRISE ML SYSTEMS</span>
-      <h1>I build AI systems that <span>ship</span> — across 17+ markets, at board-level stakes.</h1>
+      <h1>I build AI systems that <span>ship</span> — across global enterprises, at board-level stakes.</h1>
       <p class="sub">22 years turning AI strategy into production systems: agentic architectures, event-driven RAG pipelines, and adoption programs that move real revenue, cost, and retention numbers — not just demos.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#experience">View experience</a>
@@ -341,8 +394,7 @@
       </div>
       <div class="status-strip mono">
         <span><b>22Y</b> experience</span>
-        <span><b>17+</b> markets</span>
-        <span><b>6</b> business lines</span>
+        <span><b>6</b> industries spanned</span>
         <span><b>$3.1M</b> annualized savings delivered</span>
         <span><b>US Green Card</b> · available immediately</span>
       </div>
@@ -435,32 +487,32 @@
       <div class="company-card">
         <div class="company-name">Lyca Mobile</div>
         <div class="company-role">Chief AI Officer</div>
-        <div class="company-meta mono">Lyca Group of Companies · Sep 2025 – Jul 2026</div>
+        <div class="company-meta mono">Lyca Group of Companies · Dubai, UAE</div>
       </div>
       <div class="company-card">
         <div class="company-name">Neuronworks.ai</div>
         <div class="company-role">Founder &amp; Chief AI Officer</div>
-        <div class="company-meta mono">Feb 2025 – Sep 2025</div>
+        <div class="company-meta mono">New Jersey, USA &amp; Chennai, India</div>
       </div>
       <div class="company-card">
         <div class="company-name">Infodesk</div>
         <div class="company-role">Director, Data Science &amp; AI Development</div>
-        <div class="company-meta mono">Oct 2022 – Jan 2025</div>
+        <div class="company-meta mono">India</div>
       </div>
       <div class="company-card">
         <div class="company-name">John Wiley &amp; Sons</div>
         <div class="company-role">Principal Data Scientist</div>
-        <div class="company-meta mono">Aug 2019 – Oct 2022</div>
+        <div class="company-meta mono">New Jersey, USA</div>
       </div>
       <div class="company-card">
         <div class="company-name">Verisk Analytics</div>
         <div class="company-role">Lead Product Insight Analyst</div>
-        <div class="company-meta mono">Feb 2009 – Aug 2019</div>
+        <div class="company-meta mono">New Jersey, USA</div>
       </div>
       <div class="company-card">
         <div class="company-name">Cognizant</div>
         <div class="company-role">Project Lead</div>
-        <div class="company-meta mono">Jul 2004 – May 2008</div>
+        <div class="company-meta mono">London, UK &amp; Chennai, India</div>
       </div>
     </div>
   </div>
@@ -531,44 +583,139 @@
 <section id="speaking" style="background:var(--bg-card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-label">04 — Speaking &amp; Media</span>
+      <span class="section-label">04 — Speaking &amp; Features</span>
       <h2>Talking about agentic AI in public.</h2>
+      <p>Talks, features, and writing — each card links out to the original. Add a photo and link to any card as new ones happen.</p>
     </div>
-    <ul class="flat-list reveal">
-      <li><span class="tag-date mono">2023–2025</span><span>Speaker at three ICAI AI Innovation Summits (Chennai 2024, Jaipur CIRC-2025, Vadodara 2025) on generative and agentic AI for the chartered accountancy profession; keynote speaker, Cypher AI Summit 2023 — India's largest AI summit, hosted by Analytics India Magazine.</span></li>
-      <li><span class="tag-date mono">Media</span><span>Featured in WAIV Magazine and on Maalai Murasu TV's education series "Padippom Jeippom," discussing AI literacy and career adaptability.</span></li>
-      <li><span class="tag-date mono">Ongoing</span><span>Mentors high-school students in data science and research; contributes published papers and thought-leadership writing on applied AI.</span></li>
-    </ul>
 
-    <div class="section-head reveal" style="margin-top:44px;">
-      <span class="section-label">Publications &amp; links</span>
+    <div class="feature-grid reveal">
+      <div class="feature-card">
+        <div class="feature-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="ph-label">Add photo</span>
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag mono">Speaking</span>
+          <h3 class="feature-title">ICAI AI Innovation Summits</h3>
+          <p class="feature-desc">Speaker across three summits (Chennai, Jaipur CIRC, Vadodara) on generative and agentic AI for the chartered accountancy profession.</p>
+          <a class="feature-link" href="#">Add link ↗</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="ph-label">Add photo</span>
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag mono">Keynote</span>
+          <h3 class="feature-title">Cypher AI Summit</h3>
+          <p class="feature-desc">Keynote speaker at India's largest AI summit, hosted by Analytics India Magazine.</p>
+          <a class="feature-link" href="#">Add link ↗</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="ph-label">Add photo</span>
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag mono">Feature</span>
+          <h3 class="feature-title">WAIV Magazine</h3>
+          <p class="feature-desc">Featured discussing AI literacy and career adaptability.</p>
+          <a class="feature-link" href="#">Add link ↗</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-photo video-thumb" data-video-id="NHrGbBq956Y" role="button" tabindex="0" aria-label="Play video: Maalai Murasu TV, Padippom Jeippom">
+          <img src="https://img.youtube.com/vi/NHrGbBq956Y/hqdefault.jpg" alt="Maalai Murasu TV — Padippom Jeippom thumbnail" loading="lazy">
+          <span class="play-btn" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
+          </span>
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag mono">TV interview</span>
+          <h3 class="feature-title">Maalai Murasu TV — "Padippom Jeippom"</h3>
+          <p class="feature-desc">Education series segment on AI literacy and career adaptability.</p>
+          <a class="feature-link" href="https://youtu.be/NHrGbBq956Y?si=dC8zJArs3Eu54voq" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="ph-label">Add photo</span>
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag mono">Talk</span>
+          <h3 class="feature-title">O'Reilly Data Superstream</h3>
+          <p class="feature-desc">"Fueling Generative AI: The Vitality of Data Engineering."</p>
+          <a class="feature-link" href="#">Add link ↗</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="ph-label">Add photo</span>
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag mono">Article</span>
+          <h3 class="feature-title">Record Linkage — Entity-Resolution Pipeline</h3>
+          <p class="feature-desc">Building a custom entity-resolution pipeline, published on Medium.</p>
+          <a class="feature-link" href="#">Add link ↗</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="ph-label">Add photo</span>
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag mono">Article series</span>
+          <h3 class="feature-title">Bayesian Modeling — Assignment Length Estimation</h3>
+          <p class="feature-desc">Three-part series on Medium / Wiley Knerd.</p>
+          <a class="feature-link" href="#">Add link ↗</a>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span class="ph-label">Add photo</span>
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag mono">Publication</span>
+          <h3 class="feature-title">UPSTAT Conference Abstract</h3>
+          <p class="feature-desc">"Smart Defaults and Updating Estimates Over Time."</p>
+          <a class="feature-link" href="#">Add link ↗</a>
+        </div>
+      </div>
+
+      <div class="feature-card feature-add">
+        <div class="add-icon">+</div>
+        <div class="add-text">Add your next talk, feature, or post</div>
+      </div>
     </div>
-    <ul class="flat-list reveal">
-      <li><span class="tag-date mono">Medium</span><span>Record Linkage — Building a Custom Entity-Resolution Pipeline <a class="pub-link" href="#">↗ add link</a></span></li>
-      <li><span class="tag-date mono">Medium</span><span>Bayesian Modeling — Assignment Length Estimation Series, Parts 1–3 <a class="pub-link" href="#">↗ add link</a></span></li>
-      <li><span class="tag-date mono">UPSTAT</span><span>"Smart Defaults and Updating Estimates Over Time" — conference abstract <a class="pub-link" href="#">↗ add link</a></span></li>
-      <li><span class="tag-date mono">O'Reilly</span><span>Data Superstream — "Fueling Generative AI: The Vitality of Data Engineering" <a class="pub-link" href="#">↗ add link</a></span></li>
-      <li><span class="tag-date mono">LinkedIn</span><span>Full profile and post history <a class="pub-link" href="https://linkedin.com/in/anithasiva" target="_blank" rel="noopener">↗ linkedin.com/in/anithasiva</a></span></li>
-    </ul>
 
-    <div class="section-head reveal" style="margin-top:44px;">
+    <div class="section-head reveal" style="margin-top:48px;">
       <span class="section-label">Education</span>
     </div>
     <div class="edu-grid reveal">
       <div class="edu-card">
         <div class="deg">M.S., Applied Statistics</div>
         <div class="sch">Rochester Institute of Technology, New York</div>
-        <span class="yr mono">2022</span>
       </div>
       <div class="edu-card">
         <div class="deg">M.S., Business Analytics</div>
         <div class="sch">NYU Stern School of Business, New York</div>
-        <span class="yr mono">2014</span>
       </div>
       <div class="edu-card">
         <div class="deg">B.Tech, Information Technology</div>
         <div class="sch">University of Madras, Tamil Nadu, India</div>
-        <span class="yr mono">2004</span>
       </div>
     </div>
   </div>
@@ -604,6 +751,43 @@
   </div>
 </section>
 
+<section id="open-to" style="background:var(--bg-card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">06 — Open to</span>
+      <h2>Reach out if you need this.</h2>
+      <p>Currently open to Field CTO, Principal/Staff Solutions Architect, and AI advisory roles. Specifically, here's where I plug in:</p>
+    </div>
+    <div class="open-grid reveal">
+      <div class="open-card">
+        <span class="open-tag mono">Thought Leadership</span>
+        <p>Translating agentic AI and LLM capability into board-level revenue, cost, and retention numbers — in front of engineers and executives alike.</p>
+      </div>
+      <div class="open-card">
+        <span class="open-tag mono">Technical Advisory</span>
+        <p>Strategic partner to technical founders, Heads of Infrastructure, and Research Leads — whiteboarding architecture, not just presenting slides.</p>
+      </div>
+      <div class="open-card">
+        <span class="open-tag mono">Architecture Reviews</span>
+        <p>Deep-dive design reviews with customer engineering teams and their leadership on production RAG, agent, and observability architecture.</p>
+      </div>
+      <div class="open-card">
+        <span class="open-tag mono">GTM &amp; Product Partnership</span>
+        <p>Spotting AI-native technology shifts early and feeding them back into product roadmaps — already repositioned a company's core offering around GenAI once.</p>
+      </div>
+      <div class="open-card">
+        <span class="open-tag mono">Cross-Functional Collaboration</span>
+        <p>Connective tissue between engineering, sales, sales engineering, and marketing — building the technical resources both practitioners and economic buyers need.</p>
+      </div>
+      <div class="open-card">
+        <span class="open-tag mono">Team Building &amp; Hiring</span>
+        <p>Built and mentored AI/ML engineering teams from zero to enterprise scale — happy to help build out yours.</p>
+      </div>
+    </div>
+    <a class="btn btn-primary" href="mailto:Anitha.sivasubramanian@gmail.com?subject=Role%20opportunity" style="margin-top:32px;display:inline-flex;">Email me about a role ↗</a>
+  </div>
+</section>
+
 <footer id="contact">
   <div class="wrap">
     <div class="footer-grid">
@@ -617,13 +801,12 @@
       </div>
     </div>
     <div class="footer-note">
-      © <span id="yr"></span> Anitha Sivasubramanian. Built as a single static page — no build step required.
+      © Anitha Sivasubramanian. Built as a single static page — no build step required.
     </div>
   </div>
 </footer>
 
 <script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
@@ -632,6 +815,25 @@
   } else {
     document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));
   }
+
+  // click-to-play: swap a video thumbnail for an inline, fullscreen-capable YouTube player
+  function playInlineVideo(el){
+    const id = el.getAttribute('data-video-id');
+    if (!id) return;
+    el.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" '
+      + 'title="YouTube video player" frameborder="0" '
+      + 'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" '
+      + 'allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>';
+    el.removeAttribute('role');
+    el.removeAttribute('tabindex');
+    el.style.cursor = 'default';
+  }
+  document.querySelectorAll('.video-thumb[data-video-id]').forEach(el=>{
+    el.addEventListener('click', ()=>playInlineVideo(el));
+    el.addEventListener('keydown', (e)=>{
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playInlineVideo(el); }
+    });
+  });
 </script>
 </body>
 </html>
