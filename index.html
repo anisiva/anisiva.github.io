@@ -294,6 +294,23 @@
     text-align:center;padding:0 24px;
   }
 
+  /* expandable full-text reflection */
+  .feature-details{margin-top:16px;}
+  .feature-details summary{
+    font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--amber);
+    cursor:pointer;list-style:none;border-bottom:1px dashed var(--amber);
+    display:inline-block;
+  }
+  .feature-details summary::-webkit-details-marker{display:none;}
+  .feature-details[open] summary{margin-bottom:16px;}
+  .feature-full-text{
+    font-size:0.86rem;color:#2A323B;line-height:1.75;
+    border-top:1px solid var(--line);padding-top:16px;
+  }
+  .feature-full-text p{margin:0 0 13px;}
+  .feature-full-text ol{margin:0 0 13px;padding-left:20px;}
+  .feature-full-text li{margin-bottom:9px;}
+
   /* roadmap / changelog */
   .roadmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
   .rm-card{background:var(--bg-card);padding:26px 24px;}
@@ -644,6 +661,45 @@
       </div>
 
       <div class="feature-card">
+        <div class="feature-photo video-thumb" data-video-id="O3piOJWFTgk" role="button" tabindex="0" aria-label="Play video: Protecting children in the age of AI, live on Maalaimurasu">
+          <img src="https://img.youtube.com/vi/O3piOJWFTgk/hqdefault.jpg" alt="Live discussion on child safety, privacy, and AI thumbnail" loading="lazy">
+          <span class="play-btn" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
+          </span>
+        </div>
+        <div class="feature-body">
+          <span class="feature-tag mono">Thought leadership</span>
+          <h3 class="feature-title">Protecting Children in the Age of AI — Live on Maalaimurasu</h3>
+          <p class="feature-desc">On Instagram's end-to-end encryption rollback, 11 child-safety laws across India, the EU, UK, and US, and what every AI/tech leader owes the next generation.</p>
+          <a class="feature-link" href="https://youtu.be/O3piOJWFTgk?si=BuaQbboGrqyC3FHL" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+          <details class="feature-details">
+            <summary>Read the full reflection ↓</summary>
+            <div class="feature-full-text">
+              <p>This is a long post — but I believe it's one of the most important things I've written. Please read till the end.</p>
+              <p>This morning, I spoke live on Maalaimurasu about Instagram removing End-to-End Encryption from May 8, 2026.</p>
+              <p>But the conversation left me thinking much deeper than just one platform's decision.</p>
+              <p>When I work on AI, I carry a responsibility that goes far beyond the product I build.</p>
+              <p>Behind every algorithm is a child scrolling at midnight.<br>Behind every data point is a family that trusts us.<br>Behind every feature decision is a society that doesn't always get a vote.</p>
+              <p>We talked about 11 laws across India, EU, UK and USA — all trying to answer one question: how do we protect children in a digital world that moves faster than regulation?</p>
+              <p>IT Act. DPDP Rules. EU Chat Control. UK Online Safety Act. EARN IT Act.</p>
+              <p>Governments are trying. Tech companies are navigating. And somewhere in between — a 14-year-old is on Instagram not knowing what "end-to-end encryption" means, or why it matters.</p>
+              <p>That gap — between what policymakers write and what a child understands — is exactly where leaders like us must show up.</p>
+              <p>Not just as technologists. But as educators. As parents. As coaches.</p>
+              <p>Three things I believe every AI/tech leader must do:</p>
+              <ol>
+                <li><strong>Teach the next generation</strong> — peers, subordinates, your own kids — what digital privacy means in plain language. Not jargon. Real talk.</li>
+                <li><strong>Build with intention</strong> — every AI feature you ship asks: does this protect or expose the most vulnerable?</li>
+                <li><strong>Pass it on</strong> — the knowledge you carry about data, privacy, AI safety shouldn't stay in boardrooms. It belongs in classrooms, dinner tables, and WhatsApp family groups.</li>
+              </ol>
+              <p>AI is not neutral. It reflects the values of the people who build it.</p>
+              <p>What values are we passing on?</p>
+              <p>Honestly, this appearance was less about me sharing expertise — and more a session that made me think. Deeply. About my role, my responsibility, and what I owe to the next generation.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="feature-card">
         <div class="feature-photo">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
           <span class="ph-label">Add photo</span>
@@ -658,6 +714,7 @@
 
       <div class="feature-card">
         <div class="feature-photo">
+
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
           <span class="ph-label">Add photo</span>
         </div>
