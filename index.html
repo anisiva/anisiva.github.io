@@ -318,10 +318,6 @@
   .rm-desc{margin-top:14px;color:var(--slate);font-size:0.9rem;}
 
   /* education */
-  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
-  .edu-card{border:1px solid var(--line);background:var(--bg-card);padding:20px;}
-  .edu-card .deg{font-weight:600;font-family:'Space Grotesk',sans-serif;font-size:0.98rem;}
-  .edu-card .sch{color:var(--slate);font-size:0.86rem;margin-top:6px;}
 
   /* open to */
   .open-grid{
@@ -375,8 +371,8 @@
     <div class="nav-name">ANITHA&nbsp;SIVASUBRAMANIAN</div>
     <ul class="nav-links">
       <li><a href="#impact">Impact</a></li>
-      <li><a href="#speaking">Speaking</a></li>
       <li><a href="#open-to">Open to</a></li>
+      <li><a href="#speaking">Speaking</a></li>
       <li><a href="#experience">Companies</a></li>
       <li><a href="#expertise">Expertise</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
@@ -413,12 +409,22 @@
       <div class="status-strip mono" style="margin-top:0;padding-top:14px;border-top:none;">
         <span>Lyca Mobile · Neuronworks.ai · Infodesk · John Wiley &amp; Sons · Verisk Analytics · Cognizant</span>
       </div>
+      <div class="status-strip mono" style="margin-top:0;padding-top:14px;border-top:none;">
+        <span><b>Education</b> — M.S. Applied Statistics, Rochester Institute of Technology · M.S. Business Analytics, NYU Stern · B.Tech Information Technology, University of Madras</span>
+      </div>
     </div>
 
     <div class="impact-star" id="impact">
         <span class="section-label">Impact — Situation · Task · Action · Result</span>
         <p class="impact-head">Every initiative below was scoped, shipped, and tied back to a revenue, cost, or compliance outcome — not a demo.</p>
         <div class="star-grid">
+          <div class="star-card" style="grid-column:1 / -1;">
+            <h3>GenAI Platform Overhaul — Infodesk</h3>
+            <div class="star-row"><b>S</b><span>A New York-based firm's India operations had no AI division; life-science customers in clinical research, drug discovery, and regulatory affairs needed faster, more reliable answers than the legacy platform could deliver.</span></div>
+            <div class="star-row"><b>T</b><span>Stand up an AI division from the ground up and modernize the platform around GenAI, without disrupting customers in regulated workflows.</span></div>
+            <div class="star-row"><b>A</b><span>Set up the AI division from scratch and grew it into a fully functional, cross-functional AI team. Architected a full-stack AI platform integrating conversational AI, advanced RAG, RAG benchmarking, AI search, and agent-based architectures, with a taxonomy built on a knowledge graph. Ran human-in-the-loop evaluation — roughly 50% biotech domain professionals — plus reinforcement learning and stratified-sampling evaluation with real-time scoring and version tracking.</span></div>
+            <div class="star-row result"><b>R</b><span>Repositioned as <em>"Trusted Intelligence at Your Fingertips"</em> · scaled into a multi-modal production platform</span></div>
+          </div>
           <div class="star-card">
             <h3>Conversational AI &amp; IVR Automation</h3>
             <div class="star-row"><b>S</b><span>6M+ annual customer interactions across 19+ countries; support costs rising with volume.</span></div>
@@ -440,22 +446,52 @@
             <div class="star-row"><b>A</b><span>Delivered an AI-generated, multilingual training program built for scale.</span></div>
             <div class="star-row result"><b>R</b><span><em>10,000+</em> retailers certified · shutdown averted</span></div>
           </div>
-          <div class="star-card" style="grid-column:1 / -1;">
-            <h3>GenAI Platform Overhaul — Infodesk</h3>
-            <div class="star-row"><b>S</b><span>Life-science customers in clinical research, drug discovery, and regulatory affairs needed faster, more reliable answers than the legacy platform could deliver.</span></div>
-            <div class="star-row"><b>T</b><span>Modernize the platform around GenAI — conversational AI, advanced RAG, and agent-based search — without disrupting customers in regulated workflows.</span></div>
-            <div class="star-row"><b>A</b><span>Architected a full-stack AI platform with custom NLP modules and ML-based APIs; integrated RAG benchmarking and human-in-the-loop, stratified-sampling evaluation with real-time scoring and version tracking; built and managed the cross-functional AI team that scaled it into production.</span></div>
-            <div class="star-row result"><b>R</b><span>Repositioned as <em>"Trusted Intelligence at Your Fingertips"</em> · scaled into a multi-modal production platform</span></div>
-          </div>
         </div>
       </div>
     </div>
 </section>
 
+<section id="open-to" style="background:var(--bg-card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-label">01 — Open to</span>
+      <h2>Reach out if you need this.</h2>
+      <p>Currently open to Field CTO, Principal/Staff Solutions Architect, and AI advisory roles. Specifically, here's where I plug in:</p>
+    </div>
+    <div class="open-grid reveal">
+      <div class="open-card">
+        <span class="open-tag mono">Thought Leadership</span>
+        <p>Translating agentic AI and LLM capability into board-level revenue, cost, and retention numbers — in front of engineers and executives alike.</p>
+      </div>
+      <div class="open-card">
+        <span class="open-tag mono">Technical Advisory</span>
+        <p>Strategic partner to technical founders, Heads of Infrastructure, and Research Leads — whiteboarding architecture, not just presenting slides.</p>
+      </div>
+      <div class="open-card">
+        <span class="open-tag mono">Architecture Reviews</span>
+        <p>Deep-dive design reviews with customer engineering teams and their leadership on production RAG, agent, and observability architecture.</p>
+      </div>
+      <div class="open-card">
+        <span class="open-tag mono">GTM &amp; Product Partnership</span>
+        <p>Spotting AI-native technology shifts early and feeding them back into product roadmaps — already repositioned a company's core offering around GenAI once.</p>
+      </div>
+      <div class="open-card">
+        <span class="open-tag mono">Cross-Functional Collaboration</span>
+        <p>Connective tissue between engineering, sales, sales engineering, and marketing — building the technical resources both practitioners and economic buyers need.</p>
+      </div>
+      <div class="open-card">
+        <span class="open-tag mono">Team Building &amp; Hiring</span>
+        <p>Built and mentored AI/ML engineering teams from zero to enterprise scale — happy to help build out yours.</p>
+      </div>
+    </div>
+    <a class="btn btn-primary" href="mailto:Anitha.sivasubramanian@gmail.com?subject=Role%20opportunity" style="margin-top:32px;display:inline-flex;">Email me about a role ↗</a>
+  </div>
+</section>
+
 <section id="speaking">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="section-label">01 — Speaking &amp; Features</span>
+      <span class="section-label">02 — Speaking &amp; Features</span>
       <h2>Talking about agentic AI in public.</h2>
       <p>Talks, features, and writing — each card links out to the original. Add a photo and link to any card as new ones happen.</p>
     </div>
@@ -691,61 +727,6 @@
         <div class="add-text">Add your next talk, feature, or post</div>
       </div>
     </div>
-
-    <div class="section-head reveal" style="margin-top:48px;">
-      <span class="section-label">Education</span>
-    </div>
-    <div class="edu-grid reveal">
-      <div class="edu-card">
-        <div class="deg">M.S., Applied Statistics</div>
-        <div class="sch">Rochester Institute of Technology, New York</div>
-      </div>
-      <div class="edu-card">
-        <div class="deg">M.S., Business Analytics</div>
-        <div class="sch">NYU Stern School of Business, New York</div>
-      </div>
-      <div class="edu-card">
-        <div class="deg">B.Tech, Information Technology</div>
-        <div class="sch">University of Madras, Tamil Nadu, India</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="open-to" style="background:var(--bg-card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="section-label">02 — Open to</span>
-      <h2>Reach out if you need this.</h2>
-      <p>Currently open to Field CTO, Principal/Staff Solutions Architect, and AI advisory roles. Specifically, here's where I plug in:</p>
-    </div>
-    <div class="open-grid reveal">
-      <div class="open-card">
-        <span class="open-tag mono">Thought Leadership</span>
-        <p>Translating agentic AI and LLM capability into board-level revenue, cost, and retention numbers — in front of engineers and executives alike.</p>
-      </div>
-      <div class="open-card">
-        <span class="open-tag mono">Technical Advisory</span>
-        <p>Strategic partner to technical founders, Heads of Infrastructure, and Research Leads — whiteboarding architecture, not just presenting slides.</p>
-      </div>
-      <div class="open-card">
-        <span class="open-tag mono">Architecture Reviews</span>
-        <p>Deep-dive design reviews with customer engineering teams and their leadership on production RAG, agent, and observability architecture.</p>
-      </div>
-      <div class="open-card">
-        <span class="open-tag mono">GTM &amp; Product Partnership</span>
-        <p>Spotting AI-native technology shifts early and feeding them back into product roadmaps — already repositioned a company's core offering around GenAI once.</p>
-      </div>
-      <div class="open-card">
-        <span class="open-tag mono">Cross-Functional Collaboration</span>
-        <p>Connective tissue between engineering, sales, sales engineering, and marketing — building the technical resources both practitioners and economic buyers need.</p>
-      </div>
-      <div class="open-card">
-        <span class="open-tag mono">Team Building &amp; Hiring</span>
-        <p>Built and mentored AI/ML engineering teams from zero to enterprise scale — happy to help build out yours.</p>
-      </div>
-    </div>
-    <a class="btn btn-primary" href="mailto:Anitha.sivasubramanian@gmail.com?subject=Role%20opportunity" style="margin-top:32px;display:inline-flex;">Email me about a role ↗</a>
   </div>
 </section>
 
